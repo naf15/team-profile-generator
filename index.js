@@ -95,30 +95,31 @@ const employeeQuestions = {
     ]),
 };
 
-
-
 /*========================================
 FUNCTIONS
 ========================================*/
 
-const addEmployee = (answers) => {
-    const selectedJob = answers.addMoreEmployees;
+const addEmployee = (answers, currentJob) => {
     const name = answers.name;
     const employeeId = answers.employeeId;
     const email = answers.email;
     const gitHub = answers.gitHub ? answers.gitHub : '';
     const school = answers.school ? answers.school : '';
+    const officeNumber = answers.officeNumber ? answers.officeNumber : '';
     let newEmployee;
 
-    switch(selectedJob) {
-        case 'Add Engineer':
+    switch(currentJob) {
+        case 'engineer':
             newEmployee = new Engineer(name, employeeId, email, gitHub);
             break;
             
-        case 'Add Intern':
+        case 'intern':
             newEmployee = new Intern(name, employeeId, email, school);
             break;
-    }
+        
+        case 'manager':
+            newEmployee = new Manager(name, employeeId, email, officeNumber);
+    };
 
      renderNewEmployee(newEmployee);
 };
@@ -151,7 +152,7 @@ const renderNewEmployee = (employee) => {
             <ul>
                 <li>ID: ${employee.getId()}</li>
                 <li>Email: <a href="mailto:${employee.getEmail()}">${employee.getEmail()}</a></li>
-                <li>${employee.getSchool()}</li>
+                <li>School: ${employee.getSchool()}</li>
             </ul>
         </div>
     </div>`
@@ -169,10 +170,10 @@ const renderNewEmployee = (employee) => {
             </ul>
         </div>
     </div>`
-    }
+    };
     
     renderCardsHtml += htmlData;
-}
+};
 
 const renderHtml = (data) => {
     return `<!DOCTYPE html>
@@ -202,29 +203,24 @@ const generateHtml = (data) => {
   );
 }
   
-
 /*========================================
 USER INTERACTIONS
 ========================================*/
-
-// const init = async (job) => {
-//     const answers = await inquirer.prompt(employeeQuestions[job])
-//     addEmployee(answers);
-// }; 
 
 function getEmployeeInfo () {
     inquirer
         .prompt(employeeQuestions[currentJob])
         .then((answers) => {
             const userChoice = answers.addMoreEmployees;
-                        
+            
+            addEmployee(answers, currentJob);
+            currentJob = jobs[userChoice];
+            
             if(userChoice === 'Finish Building Team') {
                 const htmlData = renderHtml(renderCardsHtml)
                 generateHtml(htmlData);
             }
             else {
-                addEmployee(answers);
-                currentJob = jobs[userChoice];
                 getEmployeeInfo();
             };
     });
