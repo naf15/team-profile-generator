@@ -20,9 +20,9 @@ DEPENDENCIES
 const inquirer = require('inquirer');
 const jest =  require('jest');
 const fs = require('fs');
-const Manager = require('./lib/Manager')
-const Engineer = require('./lib/Engineer')
-const Intern = require('./lib/Intern')
+const Manager = require('./lib/manager')
+const Engineer = require('./lib/engineer')
+const Intern = require('./lib/intern')
 let currentJob = 'manager';
 let renderCardsHtml = ``;
 
