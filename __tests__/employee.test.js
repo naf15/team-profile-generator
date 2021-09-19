@@ -1,7 +1,7 @@
 const Employee = require('../lib/employee');
 
-describle('Employee', () => {
-    describle('getName', () => {
+describe('Employee', () => {
+    describe('getName', () => {
         it('Returns name', () => {
             const name = 'Bob';
             const employee = new Employee(name, 'employeeId', 'email');
@@ -10,7 +10,7 @@ describle('Employee', () => {
         });
     });
 
-    describle('getId', () => {
+    describe('getId', () => {
         it('Returns Id', () => {
             const id = '234234';
             const employee = new Employee('name', id, 'email');
@@ -19,7 +19,7 @@ describle('Employee', () => {
         });
     });
   
-    describle('getEmail', () => {
+    describe('getEmail', () => {
         it('Returns email address', () =>{
             const email = 'asdsd@sdfd.com';
             const employee = new Employee('name', 'id', email);
@@ -28,7 +28,7 @@ describle('Employee', () => {
         });
     });
 
-    describle('getRole', () => {
+    describe('getRole', () => {
         it('Return employee role', () => {
             const role = 'Employee';
             const employee = new Employee('name', 'id', 'email');

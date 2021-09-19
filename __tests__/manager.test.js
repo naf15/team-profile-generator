@@ -18,7 +18,7 @@ describe('Manager', () =>{
         });
     });
 
-    describle('getName', () => {
+    describe('getName', () => {
         it('Returns name', () => {
             const name = 'Bob';
             const manager = new Manager(name, 'employeeId', 'email', 'officeNumber');
@@ -27,7 +27,7 @@ describe('Manager', () =>{
         });
     });
 
-    describle('getId', () => {
+    describe('getId', () => {
         it('Returns Id', () => {
             const id = '234234';
             const manager = new Manager('name', id, 'email', 'officeNumber');
@@ -36,7 +36,7 @@ describe('Manager', () =>{
         });
     });
   
-    describle('getEmail', () => {
+    describe('getEmail', () => {
         it('Returns email address', () =>{
             const email = 'asdsd@sdfd.com';
             const manager = new Manager('name', 'id', email, 'officeNumber');

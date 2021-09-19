@@ -1,16 +1,16 @@
 const Engineer = require('../lib/engineer');
 
-describle('Engineer', () => {
-    describle('getGitHub', () => {
+describe('Engineer', () => {
+    describe('getGitHub', () => {
         it('Returns github', () => {
-            const gitHub = 'account'
+            const gitHub = 'gitHub'
             const engineer = new Engineer('name', 'employeeId', 'email', 'gitHub');
             
             expect(engineer.getGitHub()).toBe(gitHub)
         });
     });
 
-    describle('getRole', () => {
+    describe('getRole', () => {
         it('Returns engineer role', () => {
             const engineer = new Engineer('name', 'employeeId', 'email', 'gitHub');
             
@@ -18,7 +18,7 @@ describle('Engineer', () => {
         });
     });
     
-    describle('getName', () => {
+    describe('getName', () => {
         it('Returns name', () => {
             const name = 'Bob';
             const engineer = new Engineer(name, 'employeeId', 'email', 'gitHub');
@@ -27,7 +27,7 @@ describle('Engineer', () => {
         });
     });
 
-    describle('getId', () => {
+    describe('getId', () => {
         it('Returns Id', () => {
             const id = '234234';
             const engineer = new Engineer('name', id, 'email', 'gitHub');
@@ -36,7 +36,7 @@ describle('Engineer', () => {
         });
     });
   
-    describle('getEmail', () => {
+    describe('getEmail', () => {
         it('Returns email address', () =>{
             const email = 'asdsd@sdfd.com';
             const engineer = new Engineer('name', 'id', email, 'gitHub');

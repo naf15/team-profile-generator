@@ -12,13 +12,14 @@ describe('Intern', () => {
 
     describe('getRole', () => {
         it('Returns the role of the intern', () => {
+            const role = "Intern"
             const intern = new Intern('name', 'id', 'email', 'school');
 
-            expect(intern.getRole()).toBe(intern);
+            expect(intern.getRole()).toBe(role);
         });
     });
 
-    describle('getName', () => {
+    describe('getName', () => {
         it('Returns name', () => {
             const name = 'Bob';
             const intern = new Intern(name, 'employeeId', 'email', 'school');
@@ -27,7 +28,7 @@ describe('Intern', () => {
         });
     });
 
-    describle('getId', () => {
+    describe('getId', () => {
         it('Returns Id', () => {
             const id = '234234';
             const intern = new Intern('name', id, 'email', 'school');
@@ -36,7 +37,7 @@ describe('Intern', () => {
         });
     });
   
-    describle('getEmail', () => {
+    describe('getEmail', () => {
         it('Returns email address', () =>{
             const email = 'asdsd@sdfd.com';
             const intern = new Intern('name', 'id', email, 'school');
